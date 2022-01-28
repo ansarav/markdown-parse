@@ -6,28 +6,27 @@ import java.util.ArrayList;
 
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String markdown) {
-        ArrayList<String> toReturn = new ArrayList<>();
-        // find the next [, then find the ], then find the (, then take up to
-        // the next )  
-       
-        int currentIndex = 0;      
+        ArrayList<String> toReturn = new ArrayList<>();     
+        int currentIndex = 0;     
         
         while(currentIndex < markdown.length()) {
-            int nextOpenBracket = markdown.indexOf("[", currentIndex);
+            int nextOpenBracket = markdown.indexOf("[", currentIndex);      
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
-            int closeParen = markdown.indexOf(")", openParen);
+            int closeParen = markdown.indexOf(")", openParen);    
 
             if(nextOpenBracket == -1 || nextCloseBracket == -1 || openParen == -1 || closeParen == -1){
                 return toReturn;
-            } // has to go after variabes DECLARED or else it will be confused             
+            }  
 
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;           
+            System.out.println(markdown.substring(nextOpenBracket +1, nextCloseBracket));
+            if (!markdown.substring(nextOpenBracket +1, nextCloseBracket).equals("NotYet")){
+                toReturn.add(markdown.substring(openParen +1 ,closeParen));
+            }
+
+            currentIndex = closeParen + 1;      
         }
-        return toReturn;
-
-      
+        return toReturn;      
     }
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
