@@ -19,8 +19,12 @@ public class MarkdownParse {
                 return toReturn;
             }  
 
-            System.out.println(markdown.substring(nextOpenBracket +1, nextCloseBracket));
-            if (!markdown.substring(nextOpenBracket +1, nextCloseBracket).equals("NotYet")){
+            //System.out.println(markdown.substring(nextOpenBracket +1, nextCloseBracket));
+            String KeyWord = markdown.substring(nextOpenBracket +1, nextCloseBracket);
+           /*  if (!markdown.substring(nextOpenBracket +1, nextCloseBracket).equals("NotYet")){
+                toReturn.add(markdown.substring(openParen +1 ,closeParen));
+            } */
+            if (!KeyWord.equals("NotYet")){
                 toReturn.add(markdown.substring(openParen +1 ,closeParen));
             }
 
