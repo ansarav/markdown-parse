@@ -19,9 +19,9 @@ public class MarkdownParse {
                 return toReturn;
             }   */
 
-           /*  if(nextOpenBracket == -1 && nextCloseBracket == -1 && openParen == -1 && closeParen == -1){
+            if(nextOpenBracket == -1 && nextCloseBracket == -1 && openParen == -1 && closeParen == -1){
                 return toReturn;
-            }   */
+            }   
 
             //System.out.println(markdown.substring(nextOpenBracket +1, nextCloseBracket));
             String KeyWord = markdown.substring(nextOpenBracket +1, nextCloseBracket);
